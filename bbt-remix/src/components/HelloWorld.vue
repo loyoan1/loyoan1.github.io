@@ -1,17 +1,22 @@
 <template>
   <div>
-    <p>{{ greeting }}, ich hätte gerne ein(en)</p>
-    <span class="selection">{{ bbt.milkTea.name }}</span>
-    <p>mit</p>
-    <span class="selection">{{ bbt.toppings.name }}</span
-    >.
-    <p>Und bitte</p>
-    <span class="selection">{{ bbt.sugarLevel.name }}</span>
-    <p>und</p>
-    <span class="selection">{{ bbt.temperature.name }}</span
-    >.
     <div>
-      <button class="button" @click="somethingDifferent">
+      <img class="shop-logo" alt="Comebuy Logo" src="../assets/comebuy.jpg" />
+    </div>
+    <div class="spacer">
+      <p>{{ greeting }}, ich hätte gerne ein(en)</p>
+      <span class="selection">{{ bbt.milkTea.name }}</span>
+      <p>mit</p>
+      <span class="selection">{{ bbt.toppings.name }}</span
+      >.
+      <p>Und bitte</p>
+      <span class="selection">{{ bbt.sugarLevel.name }}</span>
+      <p>und</p>
+      <span class="selection">{{ bbt.temperature.name }}</span
+      >.
+    </div>
+    <div class="spacer">
+      <button class="button is-primary" @click="somethingDifferent">
         Ähhmm, ich hätte gerne etwas anderes!
       </button>
     </div>
@@ -33,11 +38,12 @@ export default defineComponent({
   },
   methods: {
     getGreeting() {
-      const greetings = ["Hallo", "Naaaa", "Hello", "Guten Tag"];
+      const greetings = ["Hallo", "Naaaa", "Hello", "Guten Tag", "Moin moin"];
       return getRandomEntry(greetings);
     },
     somethingDifferent() {
       this.bbt = giveMeMyBbt();
+      this.greeting = this.getGreeting();
     },
   },
 });
@@ -68,5 +74,13 @@ span.selection {
   font-size: 30px;
   font-weight: bold;
   text-decoration: underline;
+}
+
+.spacer {
+  margin-top: 30px;
+}
+
+.shop-logo {
+  height: 100px;
 }
 </style>
