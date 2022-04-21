@@ -3,13 +3,17 @@
     <p>{{ greeting }}, ich hätte gerne ein(en)</p>
     <span class="selection">{{ bbt.milkTea.name }}</span>
     <p>mit</p>
-    <span class="selection">{{ bbt.toppings.name }}</span>.
+    <span class="selection">{{ bbt.toppings.name }}</span
+    >.
     <p>Und bitte</p>
     <span class="selection">{{ bbt.sugarLevel.name }}</span>
     <p>und</p>
-    <span class="selection">{{ bbt.temperature.name }}</span>.
+    <span class="selection">{{ bbt.temperature.name }}</span
+    >.
     <div>
-      <button class="button" @click="somethingDifferent">Ähhmm, ich hätte gerne etwas anderes!</button>
+      <button class="button" @click="somethingDifferent">
+        Ähhmm, ich hätte gerne etwas anderes!
+      </button>
     </div>
   </div>
 </template>
@@ -24,18 +28,18 @@ export default defineComponent({
   data() {
     return {
       bbt: giveMeMyBbt(),
-      greeting: this.getGreeting()
+      greeting: this.getGreeting(),
     };
   },
   methods: {
     getGreeting() {
-      const greetings = ["Hallo", "Naaaa", "Hello", "Guten Tag"]
-      return getRandomEntry(greetings)
+      const greetings = ["Hallo", "Naaaa", "Hello", "Guten Tag"];
+      return getRandomEntry(greetings);
     },
     somethingDifferent() {
       this.bbt = giveMeMyBbt();
-    }
-  }
+    },
+  },
 });
 </script>
 
